@@ -1,0 +1,22 @@
+.navBackground {
+  background-color: #F21792;
+}
+
+.navLogo {
+  height: 64px;
+}
+
+.homeBackground {
+  background-image: url(/images/bgLogo.png);
+  background-size: contain;
+  height: 500px;
+}
+
+.navHeight {
+  height: 40px;
+  line-height: 40px;
+}
+
+.navMargin {
+  margin-bottom: 50px;
+}
