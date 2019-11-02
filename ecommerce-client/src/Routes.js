@@ -9,12 +9,18 @@ class Routes extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Navbar/>
+        <div> 
+          <Navbar/>
+        </div>
+        <div>
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/signin" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
         </Switch>
+        </div>
+       
+        
       </BrowserRouter>
     )
   }
