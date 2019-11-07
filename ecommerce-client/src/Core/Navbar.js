@@ -4,6 +4,8 @@ import { MdAccountCircle } from 'react-icons/md';
 import { MdShoppingBasket } from 'react-icons/md';
 import { MdSearch } from 'react-icons/md';
 import './Core.css';
+import { signout } from '../Helpers/helpers'
+
 
 
 class Navbar extends React.Component{
@@ -20,6 +22,7 @@ class Navbar extends React.Component{
               <ul className="right hide-on-med-and-down">
                 <li><Link to="/signin">Signin</Link></li>
                 <li><Link to="/signup">Signup</Link></li>
+                <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
               </ul>
             </div>
           </nav>
