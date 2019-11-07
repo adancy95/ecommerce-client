@@ -3,6 +3,9 @@ import { MdMail } from 'react-icons/md';
 import { MdLock } from 'react-icons/md';
 import "./User.css"
 import axios from "axios";
+import { Redirect } from 'react-router';
+import {authenticate} from '../Helpers/helpers'
+
 
 
 
@@ -12,34 +15,41 @@ class Signin extends React.Component {
     this.state = {
       email: "",
       password: "",
-      message: null
+      error: null,
+      success: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(e) {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value })
+    this.setState({error: false})
   }
 
   handleSubmit(e) {
     e.preventDefault();
     axios.post("http://localhost:3001/api/login", this.state, { withCredentials: true })
       .then( responseFromServer => {
-          console.log("response is:", responseFromServer);
-          alert("You are logged in.")
-      })
+        authenticate(responseFromServer, () => {
+          this.setState({
+            email: "",
+            password: "",
+            error: null,
+            success: true
+          })
+        } )
+        })
       .catch(err => {
-        console.log(err)
-        if(err.response.data) return this.setState({ message: err.response.data.message })
+        console.log(err.response.data.error)
+        this.setState({ error: err.response.data.message })
       });
   }
 
- 
-  render() {
-    return (
-      <div>
+  signinForm = () => (
+    <div>
         <h2>Sign In</h2>
+        {this.showError()}
         <div className="row">
           <form className="col s10" onSubmit={this.handleSubmit}>
             <div className="row">
@@ -59,8 +69,23 @@ class Signin extends React.Component {
             <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span>
             </button> 
           </form>
-          { this.state.message && <div> { this.state.message } </div> }
         </div> 
+      </div>
+  )
+
+  showError = () => (
+    <div style={{display: this.state.error ? "" : "none"}}> {this.state.error}</div>
+   )
+
+ 
+  render() {
+    if(this.state.success) {
+      console.log(this.state.success)
+      return <Redirect to="/" /> 
+    }
+    return (
+      <div>
+        {this.signinForm()}
       </div>
     );
 

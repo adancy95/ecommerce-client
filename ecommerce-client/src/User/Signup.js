@@ -3,7 +3,8 @@ import { MdAccountCircle } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 import { MdLock } from 'react-icons/md';
 import axios from "axios";
-import "./User.css"
+import "./User.css";
+import { Redirect } from 'react-router';
 
 
 
@@ -15,7 +16,8 @@ class Signup extends React.Component {
       lastName: "",
       email: "",
       password: "",
-      message: null
+      error: null,
+      success: false
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -23,24 +25,39 @@ class Signup extends React.Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value })
+    this.setState({error: false})
   }
+
+  signup = () => {
+    axios.post("http://localhost:3001/api/signup", this.state, { withCredentials: true })
+      .then(responseFromServer => {
+        this.setState({
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          error: null,
+          success: true
+        })
+      })
+      .catch(err => {
+        this.setState({ error: err.response.data.message })
+      });
+  }
+
+  showError = () => (
+   <div style={{display: this.state.error ? "" : "none"}}> {this.state.error}</div>
+  )
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:3001/api/signup", this.state,{ withCredentials: true })
-    .then( responseFromServer => {
-      console.log("response is:", responseFromServer);
-      // const { userDoc } = responseFromServer.data;
-      // this.props.onUserChange(userDoc);
-    }).catch( err => console.log("Error signing up: ", err));
-    
+    this.signup()
   }
 
- 
-  render() {
-    return (
-      <div>
-        <h2>Sign Up</h2>
+  signupForm = () => (
+    <div>
+      <h2>Sign Up</h2>
+      {this.showError()}
         <div className="row">
           <form className="col s10" onSubmit={this.handleSubmit}>
             <div className="row">
@@ -75,9 +92,20 @@ class Signup extends React.Component {
             </button>
            
           </form>
-          { this.state.message && <div> { this.state.message } </div> }
         </div> 
       </div>
+  )
+
+ 
+  render() {
+    if(this.state.success) {
+      return <Redirect to="/signin" /> 
+    }
+    return (
+      <div>
+        {this.signupForm()}
+      </div>
+      
     );
 
   }
