@@ -3,7 +3,7 @@ import { MdAccountCircle } from 'react-icons/md';
 import { MdMail } from 'react-icons/md';
 import { MdLock } from 'react-icons/md';
 import axios from "axios";
-import "./User.css";
+import "../Core/Core.css"
 import { Redirect } from 'react-router';
 
 
@@ -29,7 +29,7 @@ class Signup extends React.Component {
   }
 
   signup = () => {
-    axios.post("http://localhost:3001/api/signup", this.state, { withCredentials: true })
+    axios.post(`${process.env.REACT_APP_API_URL}/signup`, this.state, { withCredentials: true })
       .then(responseFromServer => {
         this.setState({
           firstName: "",
@@ -62,7 +62,7 @@ class Signup extends React.Component {
           <form className="col s10" onSubmit={this.handleSubmit}>
             <div className="row">
               <div className="input-field col s5">
-                <MdAccountCircle className=" prefix material-icons black-text" />
+                <MdAccountCircle className="prefix material-icons black-text" />
                 <input name="firstName" value={this.state.firstName} onChange={this.handleChange}  id="firstName" type="text" className="validate"/>
                 <label htmlFor="firstName">First Name</label>
               </div>

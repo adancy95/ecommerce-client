@@ -1,10 +1,10 @@
 import React from 'react';
 import { MdMail } from 'react-icons/md';
 import { MdLock } from 'react-icons/md';
-import "./User.css"
+import "../Core/Core.css"
 import axios from "axios";
 import { Redirect } from 'react-router';
-import {authenticate} from '../Helpers/helpers'
+import {authenticate, isAuthenticated} from '../Helpers/helpers'
 
 
 
@@ -29,7 +29,7 @@ class Signin extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:3001/api/login", this.state, { withCredentials: true })
+    axios.post(`${process.env.REACT_APP_API_URL}/login`, this.state, { withCredentials: true })
       .then( responseFromServer => {
         authenticate(responseFromServer, () => {
           this.setState({
@@ -78,10 +78,16 @@ class Signin extends React.Component {
 
  
   render() {
-    if(this.state.success) {
-      console.log(this.state.success)
-      return <Redirect to="/" /> 
+    
+    if (this.state.success) {
+      const { data: { userDoc } } = isAuthenticated();
+      if( userDoc.role === 1) {
+        return <Redirect to="/admin/dashboard" />
+      } else {
+        return <Redirect to="/user/dashboard" /> 
+      }
     }
+  
     return (
       <div>
         {this.signinForm()}
