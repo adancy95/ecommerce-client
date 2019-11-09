@@ -4,6 +4,8 @@ import Signup from './User/Signup';
 import Signin from './User/Signin';
 import Home from './Core/Home';
 import Navbar from './Core/Navbar';
+import Dashboard from './User/UserDashboard';
+import PrivateRoute from './Helpers/privateRoutes'
 
 class App extends React.Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class App extends React.Component {
           <Route path="/" exact component={Home}/>
           <Route path="/signin" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
+          <PrivateRoute path="/user/dashboard" exact component={Dashboard}/>
         </Switch>
         </div>
        
