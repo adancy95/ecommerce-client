@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { Link, withRouter } from 'react-router-dom'
 import { MdAccountCircle } from 'react-icons/md';
 import { MdShoppingBasket } from 'react-icons/md';
 import { MdSearch } from 'react-icons/md';
 import './Core.css';
-import { signout } from '../Helpers/helpers'
+import { signout, isAuthenticated } from '../Helpers/helpers'
 
 
 
@@ -20,9 +20,15 @@ class Navbar extends React.Component{
                 <li><Link to="/about">About</Link></li>  
               </ul>
               <ul className="right hide-on-med-and-down">
-                <li><Link to="/signin">Signin</Link></li>
-                <li><Link to="/signup">Signup</Link></li>
-                <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
+                {!isAuthenticated() && (
+                  <Fragment>
+                    <li><Link to="/signin">Signin</Link></li>
+                    <li><Link to="/signup">Signup</Link></li>
+                  </Fragment>
+                )}
+                {isAuthenticated() && (
+                  <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
+                )} 
               </ul>
             </div>
           </nav>
