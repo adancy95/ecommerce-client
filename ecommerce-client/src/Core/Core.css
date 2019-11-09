@@ -20,3 +20,18 @@
 .navMargin {
   margin-bottom: 50px;
 }
+
+nav {
+  left: 300px;
+  right: 0;
+  width: auto;
+}
+     
+.btnColor {
+  background-color: #F21792;
+}
+
+.main {
+  padding-left: 300px;
+}
+
