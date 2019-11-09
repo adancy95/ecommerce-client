@@ -11,7 +11,7 @@ export const signout = () => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("User")
   };
-    return axios.delete("http://localhost:3001/api/logout",{ withCredentials: true })
+    return axios.delete(`${process.env.REACT_APP_API_URL}/logout`,{ withCredentials: true })
     .then((response) => {
       console.log(response)
     })
