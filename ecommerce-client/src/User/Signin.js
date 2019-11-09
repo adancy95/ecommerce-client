@@ -41,7 +41,6 @@ class Signin extends React.Component {
         } )
         })
       .catch(err => {
-        console.log(err.response.data.error)
         this.setState({ error: err.response.data.message })
       });
   }
