@@ -4,7 +4,8 @@ import Signup from './User/Signup';
 import Signin from './User/Signin';
 import Home from './Core/Home';
 import Navbar from './Core/Navbar';
-import Dashboard from './User/UserDashboard';
+import UserDashboard from './User/UserDashboard';
+import AdminDashboard from './User/AdminDashboard';
 import PrivateRoute from './Helpers/privateRoutes'
 
 class App extends React.Component {
@@ -18,18 +19,17 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div> 
-          <Navbar/>
+         <Navbar/>
+        <div className="container">
+         
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/signin" exact component={Signin} />
+            <Route path="/signup" exact component={Signup} />
+              <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
+              <PrivateRoute path="/admin/dashboard" exact component={AdminDashboard} />
+          </Switch>
         </div>
-        <div>
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/signin" exact component={Signin} />
-          <Route path="/signup" exact component={Signup} />
-          <PrivateRoute path="/user/dashboard" exact component={Dashboard}/>
-        </Switch>
-        </div>
-       
         
       </BrowserRouter>
     )
