@@ -4,8 +4,11 @@ import React from 'react';
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        Landing Page
+      <div className="row">
+        <div className="col s12">
+          Landing Page
+           
+        </div>
       </div>
     )
   }

@@ -10,11 +10,10 @@ import { signout, isAuthenticated } from '../Helpers/helpers'
 class Navbar extends React.Component{
   render() {
     return (
-      <div className="navMargin">
-        <div className="navbar-fixed nav-extended navHeight">
-          <nav>
-            <div className="nav-wrapper navBackground">
-              <ul className="left hide-on-med-and-down">
+      <div class="navbar-fixed">
+      <nav>
+          <div class="nav-wrapper">
+          <ul className="left hide-on-med-and-down">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>  
               </ul>
@@ -26,18 +25,19 @@ class Navbar extends React.Component{
                   </Fragment>
                 )}
                 {isAuthenticated() && (
-                  <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
+                  <Fragment>
+                     <li><Link to="/user/dashboard"><MdAccountCircle className="material-icons" /></Link></li>
+                    <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
+                  </Fragment> 
                 )} 
               </ul>
               <ul className="right hide-on-med-and-down">
                 <li><Link to="/"><MdShoppingBasket className="material-icons"/></Link></li>
-                <li><Link to="/user/dashboard"><MdAccountCircle className="material-icons" /></Link></li>
+               
               </ul>
-            </div>
-          </nav>
         </div>
-
-      </div>
+      </nav>
+    </div>
       
     )
   }
