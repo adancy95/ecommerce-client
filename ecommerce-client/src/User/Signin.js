@@ -9,6 +9,7 @@ import {authenticate, isAuthenticated} from '../Helpers/helpers'
 
 
 
+
 class Signin extends React.Component {
   constructor(props) {
     super(props);
@@ -86,6 +87,11 @@ class Signin extends React.Component {
       } else {
         return <Redirect to="/user/dashboard" /> 
       }
+     
+    }
+
+    if(isAuthenticated()){
+      return <Redirect to="/" /> 
     }
   
     return (
