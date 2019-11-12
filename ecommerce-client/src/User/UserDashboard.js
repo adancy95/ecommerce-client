@@ -1,7 +1,7 @@
 import React from 'react';
 import { isAuthenticated } from '../Helpers/helpers';
 import "../Core/Core.css"
-import { Link} from 'react-router-dom'
+import {UserLeftNav} from './UserLeftNav'
 
 class UserDashboard extends React.Component{
 
@@ -40,19 +40,6 @@ class UserDashboard extends React.Component{
       
   )
 
-  leftNav = () => 
-    (
-     
-      <ul id="slide-out" style={{marginTop:"65px"}} className="sidenav sidenav-fixed leftnav" >
-        <li><Link to="/user/dashboard">Dashboard</Link></li>
-        <li><Link to="/user/dashboard/orders">Order History</Link></li>
-        <li><Link to="/user/dashboard/profile">User Profile</Link></li>
-      
-      </ul>
-
-
-      
-    )
   
   render() {
   
@@ -61,7 +48,7 @@ class UserDashboard extends React.Component{
           <div className="row">
 
             <div className="col s3">
-            {this.leftNav()}
+            <UserLeftNav />
             </div>
 
             <div className="col s9">
