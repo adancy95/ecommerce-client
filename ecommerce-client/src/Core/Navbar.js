@@ -8,11 +8,22 @@ import { signout, isAuthenticated } from '../Helpers/helpers'
 
 
 class Navbar extends React.Component{
+
+  userprofile = () => {
+    const { data: { userDoc } } = isAuthenticated();
+    if( userDoc.role === 1) {
+      return <li><Link to="/admin/dashboard"><MdAccountCircle className="material-icons" /></Link></li>
+    } else {
+      return <li><Link to="/user/dashboard"><MdAccountCircle className="material-icons" /></Link></li>
+    }
+
+  }
+  
   render() {
     return (
-      <div class="navbar-fixed">
+      <div className="navbar-fixed">
       <nav>
-          <div class="nav-wrapper">
+          <div className="nav-wrapper">
           <ul className="left hide-on-med-and-down">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>  
@@ -25,8 +36,8 @@ class Navbar extends React.Component{
                   </Fragment>
                 )}
                 {isAuthenticated() && (
-                  <Fragment>
-                     <li><Link to="/user/dashboard"><MdAccountCircle className="material-icons" /></Link></li>
+                <Fragment>
+                    {this.userprofile()}
                     <li><Link to="/" onClick={() => signout()}>Signout</Link></li>
                   </Fragment> 
                 )} 
