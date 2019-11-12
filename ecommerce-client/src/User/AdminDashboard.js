@@ -1,12 +1,12 @@
 import React from 'react';
 import { isAuthenticated } from '../Helpers/helpers';
 import "../Core/Core.css"
-import { Link} from 'react-router-dom'
+import {AdminleftNav} from './AdminLeftNav'
 
 class AdminDashboard extends React.Component{
 
   userContent = () => {
-    const { data : {userDoc : {firstName, lastName, email, role, _id}} } = isAuthenticated()
+    const { data: { userDoc: { firstName, lastName, email, role, _id } } } = isAuthenticated()
     return (
             <div className="card blue-grey darken-1">
               <div className="card-content">
@@ -22,41 +22,8 @@ class AdminDashboard extends React.Component{
     )
   }
 
-  orderHistory = () => (
-  
-          <div className="card blue-grey darken-1">
-            <div className="card-content">
-              <span className="card-title white-text">Order History</span>
-              <ul className="collection">
-                <li className="collection-item">Date</li>
-                <li className="collection-item">Time</li>
-                <li className="collection-item">Items Purchased</li>
-                <li className="collection-item">Total</li>
-              </ul> 
-            </div>
-          </div>
-   
-
-      
-  )
-
-  leftNav = () => 
-    (
-     
-      <ul id="slide-out" style={{marginTop:"65px"}} className="sidenav sidenav-fixed invesible-top" >
-      <li><Link to="/admin/dashboard">Dashboard</Link></li>
-      <li><Link to="/dashboard/products">Products</Link></li>
-      <li><Link to="/dashboard/addproducts">Add Products</Link></li>
-      <li><Link to="/dashboard/categories">Categories</Link></li>
-      <li><Link to="/dashboard/addcategories">Add Category</Link></li>
-      <li><Link to="/dashboard/orders">Orders</Link></li>
-      <li><Link to="/dashboard/users">Users</Link></li>
-      </ul>
 
 
-      
-    )
-  
   render() {
   
     return (
@@ -64,12 +31,11 @@ class AdminDashboard extends React.Component{
           <div className="row">
 
             <div className="col s3">
-            {this.leftNav()}
+            <AdminleftNav/>
             </div>
 
             <div className="col s9">
             {this.userContent()}
-            {this.orderHistory()}
             </div>
 
         </div>
