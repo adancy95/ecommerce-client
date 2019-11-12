@@ -9,6 +9,9 @@ import AdminDashboard from './User/AdminDashboard';
 import PrivateRoute from './Helpers/privateRoutes';
 import AdminRoute from './Helpers/privateRoutes'
 import AddCategory from './Admin/Category/AddCategory';
+import Categories from './Admin/Category/Categories';
+import Products from './Admin/Product/Products';
+import AddProduct from './Admin/Product/AddProduct';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +34,9 @@ class App extends React.Component {
             <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
             <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
             <AdminRoute path="/admin/dashboard/categories/create" exact component={AddCategory} />
+            <AdminRoute path="/admin/dashboard/categories" exact component={Categories} />
+            <AdminRoute path="/admin/dashboard/products" exact component={Products} />
+            <AdminRoute path="/admin/dashboard/products/create" exact component={AddProduct} />
           </Switch>
         </div>
         
