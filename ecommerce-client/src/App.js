@@ -7,7 +7,7 @@ import Navbar from './Core/Navbar';
 import UserDashboard from './User/UserDashboard';
 import AdminDashboard from './User/AdminDashboard';
 import PrivateRoute from './Helpers/privateRoutes';
-import AdminRoute from './Helpers/privateRoutes'
+import AdminRoute from './Helpers/AdminRoutes';
 import AddCategory from './Admin/Category/AddCategory';
 import Categories from './Admin/Category/Categories';
 import Products from './Admin/Product/Products';
@@ -28,15 +28,16 @@ class App extends React.Component {
         <div className="container">
          
           <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/signin" exact component={Signin} />
-            <Route path="/signup" exact component={Signup} />
-            <PrivateRoute path="/user/dashboard" exact component={UserDashboard} />
-            <AdminRoute path="/admin/dashboard" exact component={AdminDashboard} />
-            <AdminRoute path="/admin/dashboard/categories/create" exact component={AddCategory} />
-            <AdminRoute path="/admin/dashboard/categories" exact component={Categories} />
-            <AdminRoute path="/admin/dashboard/products" exact component={Products} />
-            <AdminRoute path="/admin/dashboard/products/create" exact component={AddProduct} />
+            <Route exact path="/"  component={Home}/>
+            <Route exact path="/signin"  component={Signin} />
+            <Route exact path="/signup"  component={Signup} />
+            <PrivateRoute exact path="/user/dashboard"  component={UserDashboard} />
+            <AdminRoute exact path="/admin/dashboard"  component={AdminDashboard} />
+            <AdminRoute  exact path="/admin/dashboard"  component={AdminDashboard} />
+            <AdminRoute exact path="/admin/dashboard/categories/create"  component={AddCategory} />
+            <AdminRoute exact path="/admin/dashboard/categories"  component={Categories} />
+            <AdminRoute exact path="/admin/dashboard/products"  component={Products} />
+            <AdminRoute exact path="/admin/dashboard/products/create"  component={AddProduct} />
           </Switch>
         </div>
         
