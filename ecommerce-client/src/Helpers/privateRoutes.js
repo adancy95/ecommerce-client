@@ -4,7 +4,7 @@ import { isAuthenticated } from './helpers'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route {...rest} render={props => isAuthenticated() ?
+  <Route {...rest} render={props => isAuthenticated()?
     (
       <Component {...props} />
     ) : (
