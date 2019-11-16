@@ -10,10 +10,8 @@ export const AdminleftNav = () =>
     <li><Link to="/admin/dashboard">Dashboard</Link></li>
     <li><Link to="/admin/dashboard/products">Products</Link></li>
     <li><Link to="/admin/dashboard/products/create">Add Product</Link></li>
-    <li><Link to="/admin/dashboard/products/edit">Edit Product</Link></li>
     <li><Link to="/admin/dashboard/categories">Categories</Link></li>
     <li><Link to="/admin/dashboard/categories/create">Add Category</Link></li>
-    <li><Link to="/admin/dashboard/categories/edit">Edit Category</Link></li>
     <li><Link to="/admin/dashboard/orders">Orders</Link></li>
     <li><Link to="/admin/dashboard/users">Users</Link></li>
   </ul>
