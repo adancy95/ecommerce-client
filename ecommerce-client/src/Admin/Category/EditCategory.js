@@ -1,6 +1,5 @@
 import React from 'react';
 import { isAuthenticated } from "../../Helpers/helpers";
-// import { Link } from "react-router-dom";
 import axios from "axios";
 import { MdCreate } from 'react-icons/md';
 import { Redirect } from 'react-router';
@@ -8,13 +7,14 @@ import {AdminleftNav} from '../../User/AdminLeftNav'
 
 
 
-class AddCategory extends React.Component{
+class EditCategory extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
       name: "",
       error: null,
-      success: false
+      success: false,
+      category: {}
     }
     this.user = isAuthenticated().data.userDoc
     this.token = isAuthenticated().data.Auth
@@ -23,17 +23,30 @@ class AddCategory extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    const { match: { params } } = this.props;
+    
+    axios.get(`${process.env.REACT_APP_API_URL}/categories/${params.id}`)
+      .then(({ data: category }) => {
+        this.setState({
+        name: category.foundCategory.name,
+        category: category.foundCategory});
+        console.log(this.state)
+      });
+  }
+
   handleChange(e) {
+    console.log(this.state)
     this.setState({ [e.target.name]: e.target.value })
     this.setState({error: false})
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_API_URL}/categories/create`, this.state, { withCredentials: true })
-      .then( responseFromServer => {
+    axios.put(`${process.env.REACT_APP_API_URL}/categories/update/${this.state.category._id}`, this.state, { withCredentials: true })
+      .then(responseFromServer => {
+        console.log(responseFromServer)
           this.setState({
-            name: "",
             error: null,
             success: true
           })
@@ -49,7 +62,7 @@ class AddCategory extends React.Component{
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h2>Add Category</h2>
+          <h2>Edit Category</h2>
           {this.showError()}
           <div className="input-field col s6">
               <MdCreate className=" prefix material-icons black-text" />
@@ -71,7 +84,7 @@ class AddCategory extends React.Component{
     if (this.state.success) {
         return <Redirect to="/admin/dashboard/categories"/>
     }
-    console.log(this.user, this.token)
+   
     return (
 
       <div className="row">
@@ -90,4 +103,4 @@ class AddCategory extends React.Component{
   }
 }
 
-export default AddCategory;
+export default EditCategory;
