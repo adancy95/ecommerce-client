@@ -15,16 +15,16 @@ class AddProduct extends React.Component{
       name: "",
       productImage: "",
       priceCurrency: "",
-      regularPrice: null,
-      salePrice: null,
+      regularPrice: undefined,
+      salePrice: undefined,
       description: "",
       instock: false,
       quantity: "",
       color: "",
       size: "",
-      priceValidUntil: "", 
+      salePriceValidUntil: "", 
       categories: [],
-      category: "",
+      category: undefined,
       error: null,
       success: false
     }
@@ -44,7 +44,6 @@ class AddProduct extends React.Component{
   }
 
   handleChange(e) {
-
     this.setState({ [e.target.name]: e.target.value })
     this.setState({ error: false })
     console.log(this.state)
@@ -88,12 +87,12 @@ productForm = () => (
               <label className="active" htmlFor="name">Product Name</label>
         </div>
         <div className="input-field col s6">
-          <select className="browser-default" value={this.state.category} onChange={this.handleChange}>
-            <option value=""  defaultValue >Choose a Category</option>
+          <select className="browser-default" name="category" value={this.state.category} onChange={this.handleChange}>
+            <option  >Choose a Category</option>
             {this.state.categories.map(category => 
               <option key={category._id} name="category" value={category._id}>{category.name}</option>
+              
             )}
-           
           </select>
         </div>
         <div className="input-field col s12">
@@ -110,8 +109,8 @@ productForm = () => (
               <label className="active" htmlFor="salePrice">Sale Price</label>
         </div>
         <div className="input-field col s3">
-              <input  type="text" name="priceValidUntil" className="validate" value={this.state.priceValidUntil} onChange={this.handleChange}/>
-              <label className="active" htmlFor="priceValidUntil">Sale Price Valid Until</label>
+              <input  type="text" name="salePriceValidUntil" className="validate" value={this.state.priceValidUntil} onChange={this.handleChange}/>
+              <label className="active" htmlFor="salePriceValidUntil">Sale Price Valid Until</label>
         </div>
         <div className="input-field col s2">
           <label>
@@ -149,7 +148,7 @@ productForm = () => (
    )
   render() {
     if (this.state.success) {
-        return <Redirect to="/admin/dashboard/categories"/>
+        return <Redirect to="/admin/dashboard/products"/>
     }
     return (
 
