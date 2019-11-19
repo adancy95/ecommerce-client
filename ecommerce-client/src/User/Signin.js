@@ -48,25 +48,24 @@ class Signin extends React.Component {
 
   signinForm = () => (
     <div>
-        <h2>Sign In</h2>
         {this.showError()}
         <div className="row">
           <form className="col s10" onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdMail className=" prefix material-icons black-text" />
                 <input name="email" value={this.state.email} onChange={this.handleChange} id="email" type="email" className="validate"/>
                 <label htmlFor="email">Email</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdLock className=" prefix material-icons black-text" />
                 <input name="password" value={this.state.password} onChange={this.handleChange} id="password" type="password" className="validate"/>
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-            <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span>
+            <button className="btn waves-effect waves-light btnColor fullwidth" type="submit" name="action"><span>Submit</span>
             </button> 
           </form>
         </div> 
@@ -93,10 +92,27 @@ class Signin extends React.Component {
     if(isAuthenticated()){
       return <Redirect to="/" /> 
     }
-  
+    
+    const style = {
+      height: '150px'
+    }
+
     return (
-      <div>
-        {this.signinForm()}
+      <div className="formOffset"> 
+         <div className="row">
+          <div className="col s6 offset-s3">
+            <div className="card">
+              <div className="card-image">
+                <img src="images/signup.jpg" alt="abstract"  style={style}/>
+                <span className="card-title black-text"><h2>Sign In</h2></span>
+              </div>
+              <div className="card-content">
+                {this.signinForm()}
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     );
 

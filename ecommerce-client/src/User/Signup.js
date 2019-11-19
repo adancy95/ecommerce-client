@@ -56,40 +56,38 @@ class Signup extends React.Component {
 
   signupForm = () => (
     <div>
-      <h2>Sign Up</h2>
       {this.showError()}
         <div className="row">
           <form className="col s10" onSubmit={this.handleSubmit}>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdAccountCircle className="prefix material-icons black-text" />
                 <input name="firstName" value={this.state.firstName} onChange={this.handleChange}  id="firstName" type="text" className="validate"/>
                 <label htmlFor="firstName">First Name</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdAccountCircle className=" prefix material-icons black-text" />
                 <input name="lastName" value={this.state.lastName} onChange={this.handleChange} id="lastName" type="text" className="validate"/>
                 <label htmlFor="lastName">Last Name</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdMail className=" prefix material-icons black-text" />
                 <input name="email" value={this.state.email} onChange={this.handleChange} id="email" type="email" className="validate"/>
                 <label htmlFor="email">Email</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s5">
+              <div className="input-field col s12">
                 <MdLock className=" prefix material-icons black-text" />
                 <input name="password" value={this.state.password} onChange={this.handleChange} id="password" type="password" className="validate"/>
                 <label htmlFor="password">Password</label>
               </div>
-            </div>
-            <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span>
-            </button>
+          </div>
+            <button className="btn waves-effect waves-light btnColor fullwidth" type="submit" name="action"><span>Submit</span></button>
            
           </form>
         </div> 
@@ -98,12 +96,30 @@ class Signup extends React.Component {
 
  
   render() {
+
     if(this.state.success) {
       return <Redirect to="/signin" /> 
     }
+
+    const style = {
+      height: '150px'
+    }
     return (
-      <div>
-        {this.signupForm()}
+      <div className="formOffset"> 
+         <div className="row">
+          <div className="col s6 offset-s3">
+            <div className="card">
+              <div className="card-image">
+                <img src="images/signup.jpg" alt="abstract"  style={style}/>
+                <span className="card-title black-text"><h2>Create an Account</h2></span>
+              </div>
+              <div className="card-content">
+                {this.signupForm()}
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
       
     );
