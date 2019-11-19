@@ -7,6 +7,7 @@ import { signout, isAuthenticated } from '../Helpers/helpers'
 
 
 
+
 class Navbar extends React.Component{
 
   userprofile = () => {
@@ -22,11 +23,17 @@ class Navbar extends React.Component{
   render() {
     return (
       <div className="navbar-fixed">
-      <nav>
+      <nav className="navBackground">
           <div className="nav-wrapper">
-          <ul className="left hide-on-med-and-down">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>  
+            <Link to="/" className=" brand-logo navLogo">Mina Cre8s </Link>
+             
+            <ul className="brand-logo center">
+              <li><Link to="/about">Bows</Link></li>
+              <li><Link to="/about">Custom Orders</Link></li>
+              <li><Link to="/about">Onesies</Link></li>
+              <li><Link to="/about">T-shirts</Link></li>  
+              <li><Link to="/about">Tutus</Link></li>  
+              
               </ul>
               <ul className="right hide-on-med-and-down">
                 {!isAuthenticated() && (

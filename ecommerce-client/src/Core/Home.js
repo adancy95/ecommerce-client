@@ -1,14 +1,19 @@
 import React from 'react';
-// import './Core.css';
+import './Core.css';
+
 
 class Home extends React.Component {
+  
   render() {
+    const style = {
+      background: 'url(/images/home.png) no-repeat center center fixed',
+      backgroundSize: 'cover',
+      height: '1000px',
+      minWidth: '1524px'
+    }
     return (
-      <div className="row">
-        <div className="col s12">
-          Landing Page
-           
-        </div>
+      <div style={style}>
+         
       </div>
     )
   }
