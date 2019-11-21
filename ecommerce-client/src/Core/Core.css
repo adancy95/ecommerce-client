@@ -4,6 +4,10 @@
   background-color: #F21792;
 }
 
+.textColor {
+  color: #F21792;
+}
+
 .fullwidth {
 width:100%;
 margin-left:25px;
@@ -20,9 +24,6 @@ text-align:center;
   background-color: #F21792;
 }
 
-.homeNavBackground {
-  background-color: 	#DFDDDE;
-}
 
 .homeNavLinks {
   color: #F21792;
@@ -43,7 +44,6 @@ text-align:center;
     background-size: cover;
     min-height: 700px; 
     width: 100%;
-    background-position: center;
     background-repeat: no-repeat;
     position: fixed;
     top: 0;
@@ -60,6 +60,13 @@ text-align:center;
 
 .formOffset{
   margin-top: 10%;
+}
+
+/* products */
+
+.imagePreview{
+  height: 200px;
+  width: 200px;
 }
 
 

@@ -8,8 +8,8 @@ class Home extends React.Component {
     const style = {
       background: 'url(/images/home.png) no-repeat center center fixed',
       backgroundSize: 'cover',
-      height: '1000px',
-      minWidth: '1524px'
+      minHeight: '720px',
+      minWidth: '100%'
     }
     return (
       <div style={style}>
