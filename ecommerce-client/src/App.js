@@ -29,11 +29,11 @@ class App extends React.Component {
     return (
       <BrowserRouter>
          <Navbar/>
-     
+         <div className="container">
          
           <Switch>
           <Route exact path="/" component={Home} />
-          <div className="container">
+         
             <Route exact path="/signin"  component={Signin} />
             <Route exact path="/signup"  component={Signup} />
             <PrivateRoute exact path="/user/dashboard"  component={UserDashboard} />
@@ -46,10 +46,10 @@ class App extends React.Component {
             <AdminRoute exact path="/admin/dashboard/products/create" component={AddProduct} />
             <AdminRoute exact path="/admin/dashboard/products/edit/:id" component={EditProduct} />
             <AdminRoute exact path="/admin/dashboard/users" component={Users} />
-            </div>
+          
           </Switch>
        
-        
+          </div>
       </BrowserRouter>
     )
   }
