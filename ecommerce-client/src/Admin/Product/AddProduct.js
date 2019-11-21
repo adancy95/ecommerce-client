@@ -13,7 +13,7 @@ class AddProduct extends React.Component{
     super(props)
     this.state = {
       name: "",
-      productImage: "",
+      productImage: undefined,
       priceCurrency: "",
       regularPrice: undefined,
       salePrice: undefined,
@@ -25,6 +25,7 @@ class AddProduct extends React.Component{
       salePriceValidUntil: "", 
       categories: [],
       category: undefined,
+      imagePreviewUrl: "",
       error: null,
       success: false
     }
@@ -33,6 +34,7 @@ class AddProduct extends React.Component{
     
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleImage = this.handleImage.bind(this)
   }
 
   componentDidMount() {
@@ -43,22 +45,51 @@ class AddProduct extends React.Component{
     })
   }
 
+  handleImage(e) {
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        productImage: file,
+        imagePreviewUrl: reader.result
+      }, _ => console.log("image", this.state.imagePreviewUrl));
+    }
+
+    reader.readAsDataURL(file)
+  }
+
   handleChange(e) {
+
     this.setState({ [e.target.name]: e.target.value })
     this.setState({ error: false })
     console.log(this.state)
   }
 
+
+
   handleSubmit(e) {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_API_URL}/products/create`, this.state, { withCredentials: true })
+ 
+      let form = new FormData();
+      form.append('name', this.state.name)
+      form.append('regularPrice', this.state.regularPrice)
+      form.append('salePrice', this.state.salePrice)
+      form.append('salePriceValidUntil', this.state.salePriceValidUntil)
+      form.append('description', this.state.description)
+      form.append('instock', this.state.instock)
+      form.append('quantity', this.state.quantity)
+      form.append('color', this.state.color)
+      form.append('size', this.state.size)
+      form.append('category', this.state.category)
+      form.append('productImage', this.state.productImage)
+
+    axios.post(`${process.env.REACT_APP_API_URL}/products/create`, form, { withCredentials: true })
       .then( responseFromServer => {
           this.setState({
-            name: "",
             error: null,
             success: true
           })
-     
         })
       .catch(err => {
         this.setState({ error: err.response.data.message })
@@ -71,17 +102,20 @@ productForm = () => (
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h2>Add Product</h2>
+          <h2 className="textColor">Add Product</h2>
         {this.showError()}
-        <div className="file-field input-field ">
+        <div className="file-field input-field col s12">
           <div className="btn-small waves-effect waves-light btnColor">
               <span>Upload Image</span>
-              <input type="file" name="productImage"  value={this.state.productImage} onChange={this.handleChange}/>
+              <input type="file" accept="image/*"  onChange={this.handleImage}/>
             </div>
             <div className="file-path-wrapper">
               <input className="file-path validate" type="text"/>
             </div>
-          </div>
+        </div>
+        <div className="input-field" col s12>
+             <img className="responsive-img imagePreview" src={this.state.imagePreviewUrl} alt={this.state.productImage} />
+        </div>
           <div className="input-field col s6">
               <input  id="name" type="text" name="name" className="validate" value={this.state.name} onChange={this.handleChange}/>
               <label className="active" htmlFor="name">Product Name</label>
@@ -114,7 +148,7 @@ productForm = () => (
         </div>
         <div className="input-field col s2">
           <label>
-            <input type="checkbox" onClick={() => { this.setState({ instock: !this.state.instock }) }}  />
+            <input type="checkbox" onClick={() => { this.setState({ instock: !this.state.instock }) }}/>
             <span>Instock</span>
           </label>
         </div>
@@ -150,6 +184,8 @@ productForm = () => (
     if (this.state.success) {
         return <Redirect to="/admin/dashboard/products"/>
     }
+
+   
     return (
 
       <div className="row">
@@ -159,7 +195,18 @@ productForm = () => (
         </div>
 
         <div className="col s9">
-          {this.productForm()}
+          <div className="formOffset"> 
+          <div className="row">
+            <div className="col ">
+              <div className="card">
+                <div className="card-content">
+                {this.productForm()}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          
         </div>
 
       </div>

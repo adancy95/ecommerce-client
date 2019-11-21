@@ -62,16 +62,18 @@ class EditCategory extends React.Component{
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h2>Edit Category</h2>
+          <h5 className="textColor">Edit Category</h5>
+          <div className="divider"></div>
           {this.showError()}
-          <div className="input-field col s6">
+          <div className="input-field col">
               <MdCreate className=" prefix material-icons black-text" />
               <input  id="name" type="text" name="name" className="validate" value={this.state.name} onChange={this.handleChange}/>
               <label className="active" htmlFor="name">Category Name</label>
           </div>
-          <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span></button> 
+         
       </div>
-    </form>
+      </form>
+      <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span></button> 
     </div>
     
   )
@@ -94,7 +96,17 @@ class EditCategory extends React.Component{
         </div>
 
         <div className="col s9">
-          {this.categoryForm()}
+          <div className="formOffset"> 
+            <div className="row">
+              <div className="col ">
+                <div className="card">
+                  <div className="card-content">
+                  {this.categoryForm()}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
         </div>
 
       </div>
