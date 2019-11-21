@@ -21,19 +21,19 @@ export const AdminleftNav = () =>
     </li>
           
       <li><Link to="/admin/dashboard">Dashboard</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/products">Products</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/products/create">Add Product</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/categories">Categories</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/categories/create">Add Category</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/orders">Orders</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/users">Users</Link></li>
-      <li><div class="divider"></div></li>
+      <li><div className="divider"></div></li>
   </ul>
 
 )
