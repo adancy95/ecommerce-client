@@ -62,7 +62,7 @@ class EditCategory extends React.Component{
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h5 className="textColor">Edit Category</h5>
+          <h2 className="textColor">Edit Category</h2>
           <div className="divider"></div>
           {this.showError()}
           <div className="input-field col">

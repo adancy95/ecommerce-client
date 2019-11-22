@@ -4,6 +4,7 @@ import { isAuthenticated } from "../../Helpers/helpers";
 import axios from "axios";
 import { Redirect } from 'react-router';
 import { AdminleftNav } from '../../User/AdminLeftNav';
+import NumberFormat from 'react-number-format';
 
 
 
@@ -125,7 +126,7 @@ productForm = () => (
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h5 className="textColor">Edit Product</h5>
+          <h2 className="textColor">Edit Product</h2>
         {this.showError()}
         <div className="file-field input-field ">
           <div className="btn-small waves-effect waves-light btnColor">
@@ -157,16 +158,16 @@ productForm = () => (
               <label className="active" htmlFor="description">Description</label>
         </div>
        
-        <div className="input-field col s2">
-              <input   type="text" name="regularPrice" className="validate" value={this.state.regularPrice} onChange={this.handleChange}/>
-              <label className="active" htmlFor="regularPrice">Regular Price</label>
+        <div className=" input-field col s2">
+          <NumberFormat thousandSeparator={true} prefix={'$'} name="regularPrice" className="validate" value={this.state.regularPrice} onChange={this.handleChange} />
+          <label className="active" htmlFor="regularPrice">Regular Price</label>
         </div>
-        <div className="input-field col s2">
-              <input  type="text" name="salePrice" className="validate" value={this.state.salePrice} onChange={this.handleChange}/>
-              <label className="active" htmlFor="salePrice">Sale Price</label>
+        <div className=" input-field col s2">
+          <NumberFormat thousandSeparator={true} prefix={'$'} name="salePrice" className="validate" value={this.state.salePrice} onChange={this.handleChange} />
+          <label className="active" htmlFor="salePrice">Sale Price</label>
         </div>
         <div className="input-field col s3">
-          <input type="text" name="priceValidUntil" className="validate" value={this.state.priceValidUntil} onChange={this.handleChange}/>
+          <input type="date" name="priceValidUntil" className="validate" value={this.state.priceValidUntil} onChange={this.handleChange}/>
               <label className="active" htmlFor="priceValidUntil">Sale Price Valid Until</label>
         </div>
         <div className="input-field col s2">

@@ -49,7 +49,7 @@ class AddCategory extends React.Component{
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h5 className="textColor">Add Category</h5>
+          <h2 className="textColor">Add Category</h2>
           {this.showError()}
           <div className="input-field col s12">
               <MdCreate className=" prefix material-icons black-text" />

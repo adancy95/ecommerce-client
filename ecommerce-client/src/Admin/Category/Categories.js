@@ -40,7 +40,7 @@ class Categories extends Component {
   showCategories() {
     return (
       <div>
-        <h2>Categories</h2>
+        <h2 className="textColor">Categories</h2>
         <table>
           <thead>
             <tr>

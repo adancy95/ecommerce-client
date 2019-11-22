@@ -41,7 +41,7 @@ class Products extends Component {
   showProducts() {
     return (
       <div>
-        <h2>Products</h2>
+        <h2 className="textColor">Products</h2>
         <table>
           <thead>
             <tr>
@@ -58,7 +58,7 @@ class Products extends Component {
                 <td>
                 {product.name.charAt(0).toUpperCase() + product.name.slice(1)}
                 </td>
-                <td>${product.regularPrice}</td>
+                <td>{product.regularPrice}</td>
                 <td>{product.quantity}</td>
                 <td>
                   <Link to={`/admin/dashboard/products/edit/${product._id}`}><MdModeEdit className="material-icons" /></Link>
