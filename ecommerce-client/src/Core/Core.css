@@ -18,6 +18,10 @@ display:block;
 text-align:center; 
 }
 
+.iconPad {
+  padding: 0 5px;
+}
+
 
 /* Nav Bar */
 .navBackground {
@@ -33,6 +37,7 @@ text-align:center;
 .navLogo{
   height: 80px;
   width: 200px;
+  font-family: 'Great Vibes', cursive;
 }
 
 
@@ -69,6 +74,19 @@ text-align:center;
   width: 200px;
 }
 
+.imagePreviewSm{
+  height: 100px;
+  width: 100px;
+}
 
 
+/* Cards */
 
+.statRow {
+  margin-left: 20%;
+}
+
+.statFont {
+  font-size: 1.6em; 
+  font-weight: bold;
+}

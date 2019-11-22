@@ -55,7 +55,7 @@ class AddProduct extends React.Component{
           quantity: product.foundProduct.quantity,
           color: product.foundProduct.color,
           size: product.foundProduct.size,
-          salePriceValidUntil: product.salePriceDate, 
+          salePriceValidUntil: product.foundProduct.salePriceValidUntil, 
           category: product.foundProduct.category,
           product: product.foundProduct, 
           imagePreviewUrl: product.foundProduct.productImage
@@ -167,7 +167,7 @@ productForm = () => (
           <label className="active" htmlFor="salePrice">Sale Price</label>
         </div>
         <div className="input-field col s3">
-          <input type="date" name="priceValidUntil" className="validate" value={this.state.priceValidUntil} onChange={this.handleChange}/>
+          <input type="date" name="priceValidUntil" className="validate" selected={this.state.priceValidUntil} onChange={this.handleChange}/>
               <label className="active" htmlFor="priceValidUntil">Sale Price Valid Until</label>
         </div>
         <div className="input-field col s2">

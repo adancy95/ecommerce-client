@@ -41,13 +41,12 @@ class Categories extends Component {
     return (
       <div>
         <h2 className="textColor">Categories</h2>
-        <table>
+        <table className="highlight responsive-table ">
           <thead>
             <tr>
               <th>Category Name</th>
-              <th>Edit Category</th>
-              <th>Delete Category</th>
               <th>Number of Products</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -56,14 +55,11 @@ class Categories extends Component {
                 <td>
                 {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
                 </td>
+                <td>{category.number_of_products}</td>
                 <td>
-                  <Link to={`/admin/dashboard/categories/edit/${category._id}`}><MdModeEdit className="material-icons" /></Link>
-                 
-                </td>
-                <td>
-                  <Link to="/admin/dashboard/categories" onClick={() => this.removeItem(index, category._id )}><MdDeleteForever className="material-icons" /></Link>
-                </td>
-                <td>0</td>
+                  <Link className="iconPad" to={`/admin/dashboard/categories/edit/${category._id}`}><MdModeEdit size={25} className="material-icons textColor" /></Link>
+                  <Link className="iconPad" to="/admin/dashboard/categories" onClick={() => this.removeItem(index, category._id )}><MdDeleteForever size={25} className="material-icons teal-text" /></Link>
+                </td>  
             </tr>
             )}
           </tbody>
@@ -81,11 +77,15 @@ class Categories extends Component {
           <div className="col s3">
             <AdminleftNav/>
           </div>
-
           <div className="col s9">
-          {this.showCategories()}
+            <div className="formOffset"> 
+                <div className="card">
+                   <div className="card-content">
+                      {this.showCategories()}
+                    </div>
+                </div>
+            </div>
           </div>
-
         </div>
             
               

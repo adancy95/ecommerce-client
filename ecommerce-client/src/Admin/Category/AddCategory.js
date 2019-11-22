@@ -1,8 +1,6 @@
 import React from 'react';
 import { isAuthenticated } from "../../Helpers/helpers";
-// import { Link } from "react-router-dom";
 import axios from "axios";
-import { MdCreate } from 'react-icons/md';
 import { Redirect } from 'react-router';
 import {AdminleftNav} from '../../User/AdminLeftNav'
 
@@ -52,13 +50,12 @@ class AddCategory extends React.Component{
           <h2 className="textColor">Add Category</h2>
           {this.showError()}
           <div className="input-field col s12">
-              <MdCreate className=" prefix material-icons black-text" />
               <input  id="name" type="text" name="name" className="validate" value={this.state.name} onChange={this.handleChange}/>
               <label className="active" htmlFor="name">Category Name</label>
           </div>
-          <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span></button> 
-      </div>
-    </form>
+        </div>
+        <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span></button> 
+      </form>
     </div>
     
   )
@@ -82,16 +79,13 @@ class AddCategory extends React.Component{
 
         <div className="col s9">
           <div className="formOffset"> 
-              <div className="row">
-                <div className="col ">
+           
                   <div className="card">
                     <div className="card-content">
                     {this.categoryForm()}
                     </div>
                   </div>
                 </div>
-              </div>
-            </div> 
           </div>
       </div>
     

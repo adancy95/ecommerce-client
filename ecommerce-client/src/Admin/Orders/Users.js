@@ -26,7 +26,7 @@ class Users extends Component {
   showUsers() {
     return (
       <div>
-        <h2>Users</h2>
+        <h2 className="textColor">Users</h2>
         <table>
           <thead>
             <tr>
@@ -67,7 +67,14 @@ class Users extends Component {
           </div>
 
           <div className="col s9">
-          {this.showUsers()}
+            <div className="formOffset"> 
+              <div className="card">
+                <div className="card-content">
+                  {this.showUsers()}
+                  </div>
+              </div>
+             </div>
+         
           </div>
 
         </div>

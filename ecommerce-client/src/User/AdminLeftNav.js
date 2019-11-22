@@ -12,11 +12,11 @@ export const AdminleftNav = () =>
     <li>
       <div className="user-view">
       <div className="background">
-        <img src="/images/signup.jpg" alt="abstractPink"/>
+        <img src="/images/white.jpg" alt="abstractPink"/>
           </div>
           <div className="circle"></div>
-        <a href="#name"><span className="black-text name"><h5>{firstName} {lastName}</h5></span></a>
-        <a href="#email"><span className="black-text email">{email}</span></a>
+        <a href="#name"><span className="textColor name"><h5>{firstName} {lastName}</h5></span></a>
+        <a href="#email"><span className="teal-text email"><h6>{email}</h6></span></a>
       </div>
     </li>
           
@@ -30,8 +30,8 @@ export const AdminleftNav = () =>
       <li><div className="divider"></div></li>
       <li><Link to="/admin/dashboard/categories/create">Add Category</Link></li>
       <li><div className="divider"></div></li>
-      <li><Link to="/admin/dashboard/orders">Orders</Link></li>
-      <li><div className="divider"></div></li>
+      {/* <li><Link to="/admin/dashboard/orders">Orders</Link></li>
+      <li><div className="divider"></div></li> */}
       <li><Link to="/admin/dashboard/users">Users</Link></li>
       <li><div className="divider"></div></li>
   </ul>

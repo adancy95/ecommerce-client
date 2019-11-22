@@ -54,7 +54,7 @@ class AddProduct extends React.Component{
       this.setState({
         productImage: file,
         imagePreviewUrl: reader.result
-      }, _ => console.log("image", this.state.imagePreviewUrl));
+      });
     }
 
     reader.readAsDataURL(file)
@@ -64,7 +64,6 @@ class AddProduct extends React.Component{
 
     this.setState({ [e.target.name]: e.target.value })
     this.setState({ error: false })
-    console.log(this.state)
   }
 
 

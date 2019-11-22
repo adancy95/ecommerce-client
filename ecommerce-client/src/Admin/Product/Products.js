@@ -45,27 +45,27 @@ class Products extends Component {
         <table>
           <thead>
             <tr>
+              <th>Image</th>
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
-              <th>Edit Category</th>
-              <th>Delete Category</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {this.state.products.map((product, index) =>
               <tr key={product._id}>
                 <td>
+                  <img className="responsive-img imagePreviewSm" src={product.productImage} alt="productImage" />
+                </td>
+                <td>
                 {product.name.charAt(0).toUpperCase() + product.name.slice(1)}
                 </td>
                 <td>{product.regularPrice}</td>
                 <td>{product.quantity}</td>
                 <td>
-                  <Link to={`/admin/dashboard/products/edit/${product._id}`}><MdModeEdit className="material-icons" /></Link>
-                 
-                </td>
-                <td>
-                  <Link to="/admin/dashboard/products" onClick={() => this.removeItem(index, product._id )}><MdDeleteForever className="material-icons" /></Link>
+                  <Link className="iconPad" to={`/admin/dashboard/products/edit/${product._id}`}><MdModeEdit size={25} className="material-icons textColor " /></Link>
+                  <Link className="iconPad"  to="/admin/dashboard/products" onClick={() => this.removeItem(index, product._id )}><MdDeleteForever size={25} className="material-icons teal-text" /></Link>
                 </td>
             </tr>
             )}
@@ -86,10 +86,18 @@ class Products extends Component {
           </div>
 
           <div className="col s9">
-          {this.showProducts()}
+            <div className="formOffset"> 
+                  <div className="card">
+                    <div className="card-content">
+                      {this.showProducts()}
+                      </div>
+                  </div>
+              </div>
           </div>
-
+          
         </div>
+
+    
             
               
         
