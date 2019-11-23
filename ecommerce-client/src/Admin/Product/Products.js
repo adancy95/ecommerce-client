@@ -42,6 +42,7 @@ class Products extends Component {
     return (
       <div>
         <h2 className="textColor">Products</h2>
+        <div className="divider"></div>
         <table>
           <thead>
             <tr>

@@ -48,6 +48,7 @@ class AddCategory extends React.Component{
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
           <h2 className="textColor">Add Category</h2>
+          <div className="divider"></div>
           {this.showError()}
           <div className="input-field col s12">
               <input  id="name" type="text" name="name" className="validate" value={this.state.name} onChange={this.handleChange}/>
@@ -79,7 +80,6 @@ class AddCategory extends React.Component{
 
         <div className="col s9">
           <div className="formOffset"> 
-           
                   <div className="card">
                     <div className="card-content">
                     {this.categoryForm()}

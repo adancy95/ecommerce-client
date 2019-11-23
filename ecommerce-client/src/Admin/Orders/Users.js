@@ -27,6 +27,7 @@ class Users extends Component {
     return (
       <div>
         <h2 className="textColor">Users</h2>
+        <div className="divider"></div>
         <table>
           <thead>
             <tr>

@@ -41,6 +41,7 @@ class Categories extends Component {
     return (
       <div>
         <h2 className="textColor">Categories</h2>
+        <div className="divider"></div>
         <table className="highlight responsive-table ">
           <thead>
             <tr>

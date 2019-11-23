@@ -102,7 +102,8 @@ productForm = () => (
       
     <form className="col s12" onSubmit={this.handleSubmit}>
         <div className="row">
-          <h2 className="textColor">Add Product</h2>
+        <h2 className="textColor">Add Product</h2>
+        <div className="divider"></div>
         {this.showError()}
         <div className="file-field input-field col s12">
           <div className="btn-small waves-effect waves-light btnColor">
