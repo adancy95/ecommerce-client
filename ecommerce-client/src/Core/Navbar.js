@@ -28,11 +28,12 @@ class Navbar extends React.Component{
             <Link to="/" className=" brand-logo navLogo">Mina Cre8s </Link>
              
             <ul className="brand-logo center">
-              <li><Link to="/about">Bows</Link></li>
-              <li><Link to="/about">Custom Orders</Link></li>
-              <li><Link to="/about">Onesies</Link></li>
+              <li><Link to="/products">Products</Link></li>  
+              {/* <li><Link to="/about">Bows</Link></li> */}
+              <li><Link to="/customorder">Custom Orders</Link></li>
+              {/* <li><Link to="/about">Onesies</Link></li>
               <li><Link to="/about">T-shirts</Link></li>  
-              <li><Link to="/about">Tutus</Link></li>  
+              <li><Link to="/about">Tutus</Link></li>   */}
               
               </ul>
               <ul className="right hide-on-med-and-down">

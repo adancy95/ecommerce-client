@@ -1,9 +1,12 @@
 import React from 'react';
 import "../Core/Core.css"
 import { Link } from 'react-router-dom'
-import { isAuthenticated } from '../Helpers/helpers';
+// import { isAuthenticated } from '../Helpers/helpers';
 
-const { data: { userDoc: { firstName, lastName, email } } } = isAuthenticated()
+// const { data: { userDoc: { firstName, lastName, email } } } = isAuthenticated()
+
+
+
 
 export const AdminleftNav = () => 
   (
@@ -15,8 +18,8 @@ export const AdminleftNav = () =>
         <img src="/images/white.jpg" alt="abstractPink"/>
           </div>
           <div className="circle"></div>
-        <a href="#name"><span className="textColor name"><h5>{firstName} {lastName}</h5></span></a>
-        <a href="#email"><span className="teal-text email"><h6>{email}</h6></span></a>
+        {/* <a href="#name"><span className="textColor name"><h5>{user.data.userDoc.firstName} {user.data.userDoc.lastName}</h5></span></a>
+        <a href="#email"><span className="teal-text email"><h6>{user.data.userDoc.email}</h6></span></a> */}
       </div>
     </li>
           

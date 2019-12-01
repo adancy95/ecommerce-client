@@ -21,16 +21,17 @@ export const signout = () => {
   
 };
   
-export const isAuthenticated = () => {
-  if (typeof window === "undefined") {
-    return false
-  };
 
-  if (localStorage.getItem("User")) {
-    return JSON.parse(localStorage.getItem("User"))
-  } else {
-    return false;
+
+export const isAuthenticated = () => {
+  if (typeof window == "undefined") {
+      return false;
   }
-}
+  if (localStorage.getItem("User")) {
+      return JSON.parse(localStorage.getItem("User"));
+  } else {
+      return false;
+  }
+};
 
 

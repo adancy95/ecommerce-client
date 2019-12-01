@@ -19,7 +19,7 @@ class Home extends React.Component {
     }
     return (
       <div style={style}>
-         <Link to="/admin/dashboard/products" className="btn-flat disabled transparent" style={link}><h5 className="textColor">Shop Now</h5></Link>
+         <Link to="/" className="btn-flat disabled transparent" style={link}><h5 className="textColor">Shop Now</h5></Link>
       </div>
     )
   }

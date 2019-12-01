@@ -5,6 +5,7 @@ import { isAuthenticated } from '../Helpers/helpers';
 
 const { data: { userDoc: { firstName, lastName, email } } } = isAuthenticated()
 
+
 export const UserLeftNav = () => 
   (
  

@@ -33,7 +33,7 @@ class AdminDashboard extends React.Component{
 
             })
         })
-}
+    }
 
 
       render() {
