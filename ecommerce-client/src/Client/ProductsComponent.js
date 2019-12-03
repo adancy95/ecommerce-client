@@ -1,5 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard'
+import SizeFilter from './SizeFilter'
+import ColorFilter from './ColorFilter'
 
 export default class ProductsComponent extends React.Component{
   render() {
@@ -9,8 +11,8 @@ export default class ProductsComponent extends React.Component{
           <ul>
             <li>Categories</li>
             <li>Filter By Price</li>
-            <li>Filter By Size</li>
-            <li>Filter By Color</li>
+            <li> <SizeFilter/></li>
+            <li><ColorFilter/></li>
           </ul>
         </div>
         <div className="product-items">
