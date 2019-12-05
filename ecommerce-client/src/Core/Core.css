@@ -156,3 +156,29 @@ text-align:center;
   justify-content: space-evenly;
 
 }
+
+/* Product Filters */
+
+.circle-button {
+  background:#E0E0E0;
+  display:inline-block;
+  border-radius: 15px;
+  color: gray;
+  /* font-weight: bold; */
+  height: 30px; 
+  padding:3px 3px 3px 3px;
+  text-align: center;
+  width: 30px;
+ 
+
+}
+
+.sizes {
+  display: flex;
+  flex-direction: row;
+}
+
+.filter-size {
+  margin: 3px;
+}
+
