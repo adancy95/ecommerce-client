@@ -16,6 +16,7 @@ import AddProduct from './Admin/Product/AddProduct';
 import EditProduct from './Admin/Product/EditProduct';
 import Users from './Admin/Orders/Users'
 import ProductsComponent from './Client/ProductsComponent'
+import CustomOrders from './Client/CustomOrders'
 
 class App extends React.Component {
   constructor(props) {
@@ -47,7 +48,8 @@ class App extends React.Component {
             <AdminRoute exact path="/admin/dashboard/products/create" component={AddProduct} />
             <AdminRoute exact path="/admin/dashboard/products/edit/:id" component={EditProduct} />
             <AdminRoute exact path="/admin/dashboard/users" component={Users} />
-            <Route exact path="/products" component={ProductsComponent}/>
+            <Route exact path="/products" component={ProductsComponent} />
+            <Route exact path="/customorder" component={CustomOrders}/>
             </div>
           
           </Switch>
