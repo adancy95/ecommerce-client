@@ -6,12 +6,12 @@ export default class SizeFilter extends React.Component{
     return (
       <div>
         <h6>Filter By Size</h6>
-        <ul className="sizes">
-          <li className="filter-size"><CircleButton text="XS" /></li>
-          <li className="filter-size"><CircleButton text="S" /></li>
-          <li className="filter-size"><CircleButton text="M" /></li>
-          <li className="filter-size"><CircleButton text="L"/></li>
-          <li className="filter-size"><CircleButton text="XL"/></li>
+        <ul className="flex-display">
+          <li className="filter-size"><CircleButton color="#E0E0E0" filterType="XS" text="XS" /></li>
+          <li className="filter-size"><CircleButton color="#E0E0E0" filterType="S"  text="S" /></li>
+          <li className="filter-size"><CircleButton color="#E0E0E0" filterType="M"  text="M" /></li>
+          <li className="filter-size"><CircleButton color="#E0E0E0" filterType="L" text="L"/></li>
+          <li className="filter-size"><CircleButton color="#E0E0E0" filterType="XL" text="XL"/></li>
         </ul>
       </div>
     )
