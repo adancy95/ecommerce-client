@@ -10,7 +10,7 @@ export default class ProductsComponent extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      products: undefined
+      products: []
     }
   }
 
@@ -22,6 +22,16 @@ export default class ProductsComponent extends React.Component{
         });
         console.log(this.state)
       });
+  }
+
+  displayProducts = () => {
+    return (
+       this.state.products.map((product, index) => 
+            <ProductCard key={index} image={product.productImage} description={product.description} productName={product.name} price={product.regularPrice}/>
+         )
+    
+    )
+   
   }
   render() {
     return (
@@ -35,14 +45,7 @@ export default class ProductsComponent extends React.Component{
           </ul>
         </div>
         <div className="product-items">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {this.displayProducts()}
           
         </div>
         </div>

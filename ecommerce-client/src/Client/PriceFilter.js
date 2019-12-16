@@ -7,7 +7,7 @@ export default class PriceFilter extends React.Component{
           <h6>Filter By Price</h6>
         <form action="#">
           <p>$1 - $100</p>
-            <p class="range-field">
+            <p className="range-field">
               <input type="range" min="0" max="100" />
             </p>
           </form>

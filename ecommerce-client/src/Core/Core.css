@@ -128,7 +128,7 @@ text-align:center;
 .product-card-subdetails{
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .product-card-price {
   margin-top: 0;
@@ -150,7 +150,7 @@ text-align:center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
 }
 
