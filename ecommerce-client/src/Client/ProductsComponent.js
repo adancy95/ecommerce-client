@@ -46,6 +46,8 @@ export default class ProductsComponent extends React.Component{
         </div>
         <div className="product-items">
           {this.displayProducts()}
+          <ProductCard />
+          
           
         </div>
         </div>
