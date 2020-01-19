@@ -114,7 +114,7 @@ productForm = () => (
               <input className="file-path validate" type="text"/>
             </div>
         </div>
-        <div className="input-field" col s12>
+        <div className="input-field col s12">
              <img className="responsive-img imagePreview" src={this.state.imagePreviewUrl} alt={this.state.productImage} />
         </div>
           <div className="input-field col s6">
