@@ -16,6 +16,29 @@ export default class CustomOrders extends React.Component{
       designText: "",
       quantity: 0
     }
+    this.handleChange = this.handleChange.bind(this)
+    // this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleImage = this.handleImage.bind(this)
+  }
+
+  handleImage(e) {
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        designImage: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
+
+  handleChange(e) {
+
+    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ error: false })
   }
   render() {
     return (
