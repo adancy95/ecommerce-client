@@ -129,7 +129,7 @@ export default class CustomOrders extends React.Component{
             </div>
           </div>
           </div>
-         
+          <button className="btn waves-effect waves-light btnColor" type="submit" name="action"><span>Submit</span></button> 
 
         </form>
       </div>
