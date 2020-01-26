@@ -1,5 +1,5 @@
 import React from 'react';
-
+import axios from 'axios'
 export default class CustomOrders extends React.Component{
   constructor(props) {
     super(props)
@@ -14,10 +14,12 @@ export default class CustomOrders extends React.Component{
       shirtFit: "",
       designImage: "",
       designText: "",
-      quantity: 0
+      quantity: 0,
+      error: null,
+      success: false
     }
     this.handleChange = this.handleChange.bind(this)
-    // this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.handleImage = this.handleImage.bind(this)
   }
 
@@ -39,6 +41,35 @@ export default class CustomOrders extends React.Component{
 
     this.setState({ [e.target.name]: e.target.value })
     this.setState({ error: false })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+ 
+      let form = new FormData();
+      form.append('firstName', this.state.firstName)
+      form.append('lastName', this.state.lastName)
+      form.append('emailAddress', this.state.emailAddress)
+      form.append('phone', this.state.phone)
+      form.append('sizeType', this.state.sizeType)
+      form.append('sizes', this.state.sizes)
+      form.append('colors', this.state.colors)
+      form.append('color', this.state.color)
+      form.append('shirtFit', this.state.shirtFit)
+      form.append('designImage', this.state.designImage)
+      form.append('designText', this.state.designText)
+      form.append('quantity', this.state.quantity)
+
+    axios.post(`${process.env.REACT_APP_API_URL}/orders/create`, form, { withCredentials: true })
+      .then( responseFromServer => {
+          this.setState({
+            error: null,
+            success: true
+          })
+        })
+      .catch(err => {
+        this.setState({ error: err.response.data.message })
+      });
   }
   render() {
     return (
